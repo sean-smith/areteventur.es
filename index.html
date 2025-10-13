@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arete Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Laviossa:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,27 +15,30 @@
         }
 
         :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #16213e;
-            --accent-color: #0f3460;
-            --highlight-color: #e94560;
+            --primary-color: #1f435c;
+            --secondary-color: #486159;
+            --accent-color: #9cd0f5;
+            --highlight-color: #8FC2B1;
+            --cta-color: #ca6462;
+            --text-dark: #5c1f32;
             --light-color: #f8f9fa;
             --text-color: #333;
             --text-light: #666;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
             line-height: 1.6;
             color: var(--text-color);
             overflow-x: hidden;
+            background-color: white;
         }
 
         /* Navigation */
         nav {
             position: fixed;
             width: 100%;
-            background: rgba(26, 26, 46, 0.95);
+            background: rgba(31, 67, 92, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
@@ -53,6 +59,7 @@
         }
 
         .logo {
+            font-family: 'Laviossa', serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--light-color);
@@ -60,8 +67,10 @@
             letter-spacing: 2px;
         }
 
-        .logo span {
-            color: var(--highlight-color);
+        .logo-svg {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .nav-links {
@@ -100,7 +109,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -125,10 +134,19 @@
 
         .hero-content {
             text-align: center;
-            color: var(--light-color);
+            color: var(--text-dark);
             z-index: 1;
             max-width: 800px;
             padding: 2rem;
+        }
+
+        .hero-logo {
+            animation: fadeInUp 1s ease 0.1s both;
+        }
+
+        .hero-icon {
+            height: 200px;
+            width: auto;
         }
 
         .hero h1 {
@@ -153,19 +171,19 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: var(--highlight-color);
+            background: var(--cta-color);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease 0.4s both;
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+            box-shadow: 0 10px 30px rgba(202, 100, 98, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.4);
+            box-shadow: 0 15px 40px rgba(202, 100, 98, 0.4);
         }
 
         @keyframes fadeInUp {
@@ -188,7 +206,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: var(--primary-color);
+            color: var(--text-dark);
             font-weight: 700;
         }
 
@@ -212,7 +230,7 @@
         .about-text h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--text-dark);
         }
 
         .about-text p {
@@ -287,7 +305,7 @@
         .focus-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--text-dark);
         }
 
         .focus-card p {
@@ -297,7 +315,7 @@
 
         /* Philosophy Section */
         #philosophy {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
         }
 
@@ -470,7 +488,9 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">Arete <span>Ventures</span></div>
+            <div class="logo">
+                <img src="Arete-Ventures-Final_AA-14.svg" alt="Arete Ventures" class="logo-svg">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -489,6 +509,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <div class="hero-logo">
+                <img src="Arete-Ventures-Final_AA-15.svg" alt="Arete Ventures Icon" class="hero-icon">
+            </div>
             <h1>Promoting <span>Excellence</span> in Organizations</h1>
             <p>We're a strategy consulting firm that helps founders build exceptional companies that shape the future.</p>
             <a href="#contact" class="cta-button">Partner With Us</a>
