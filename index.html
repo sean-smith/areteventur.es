@@ -7,7 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Laviossa:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Laviossa:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Rock+Salt&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,14 +18,18 @@
             --secondary-color:#486159;
             --accent-color:#9cd0f5;
             --highlight-color:#8FC2B1;
-            --cta-color:#ca6462;
-            --text-dark:#5c1f32;
+            --cta-color:#5c1f32;
+            --text-dark:#486159;
             --light-color:#f8f9fa;
             --text-color:#333;
             --text-light:#666;
         }
 
         body{ font-family: Georgia,'Times New Roman',Times,serif; line-height:1.6; color:var(--text-color); overflow-x:hidden; background:#fff; }
+        
+        /* Rock Salt highlight class */
+        .rock-salt{ font-family:'Rock Salt',cursive; font-size:0.9em; color:var(--highlight-color); font-weight:400; }
+        .laviossa-brand{ font-family:'Laviossa',serif; font-weight:700; }
 
         /* Navigation */
         nav{ position:fixed; width:100%; background:rgba(31,67,92,.95); backdrop-filter:blur(10px); z-index:1000; padding:1rem 0; transition:all .3s ease; }
@@ -36,10 +41,12 @@
         .logo-svg{ height:40px; width:auto; filter:brightness(0) invert(1); }
 
         .nav-links{ display:flex; list-style:none; gap:2rem; }
-        .nav-links a{ color:var(--light-color); text-decoration:none; font-weight:500; transition:color .3s ease; position:relative; }
+        .nav-links a{ color:var(--light-color); text-decoration:none; font-weight:700; font-size:1.1rem; transition:color .3s ease; position:relative; }
         .nav-links a::after{ content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--highlight-color); transition:width .3s ease; }
         .nav-links a:hover{ color:var(--highlight-color); }
         .nav-links a:hover::after{ width:100%; }
+        .nav-cta{ color:var(--light-color); text-decoration:none; font-weight:600; font-size:0.95rem; padding:0.5rem 1rem; border:1px solid var(--highlight-color); border-radius:25px; transition:all .3s ease; }
+        .nav-cta:hover{ background:var(--highlight-color); color:var(--primary-color); }
 
         /* Hero */
         .hero{ height:100vh; background:#fff; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
@@ -54,6 +61,9 @@
         .hero p{ font-size:1.35rem; margin-bottom:2rem; opacity:.95; animation:fadeInUp 1s ease .2s both; }
         .cta-button{ display:inline-block; padding:1rem 2.5rem; background:var(--cta-color); color:#fff; text-decoration:none; border-radius:50px; font-weight:600; transition:all .3s ease; animation:fadeInUp 1s ease .4s both; box-shadow:0 10px 30px rgba(202,100,98,.3); }
         .cta-button:hover{ transform:translateY(-3px); box-shadow:0 15px 40px rgba(202,100,98,.4); }
+        .hero-secondary{ margin-top:1.5rem; }
+        .secondary-link{ color:var(--text-light); text-decoration:none; font-size:1rem; transition:color .3s ease; }
+        .secondary-link:hover{ color:var(--highlight-color); }
 
         @keyframes fadeInUp{ from{ opacity:0; transform:translateY(30px);} to{ opacity:1; transform:translateY(0);} }
 
@@ -64,21 +74,20 @@
 
         /* About */
         #about{ background:var(--light-color); }
-        .about-content{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+        .about-content{ display:grid; grid-template-columns:2fr 1fr; gap:4rem; align-items:center; }
         .about-text h3{ font-size:2rem; margin-bottom:1rem; color:var(--text-dark); }
         .about-text p{ font-size:1.08rem; color:var(--text-light); margin-bottom:1.2rem; line-height:1.85; }
         .about-quote{ margin-top:1rem; font-style:italic; color:var(--text-dark); }
 
-        /* Focus */
-        #focus{ background:#fff; }
-        .focus-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2rem; }
-        .focus-card{ padding:2.5rem; background:var(--light-color); border-radius:15px; transition:all .3s ease; border:2px solid transparent; }
-        .focus-card:hover{ transform:translateY(-10px); border-color:var(--highlight-color); box-shadow:0 15px 40px rgba(0,0,0,.1); }
-        .focus-icon{ font-size:3rem; margin-bottom:1rem; }
-        .focus-card h3{ font-size:1.45rem; margin-bottom:.75rem; color:var(--text-dark); }
-        .focus-card p{ color:var(--text-light); line-height:1.7; }
-        .focus-card ul{ margin-top:.75rem; padding-left:1.25rem; color:var(--text-light); }
-        .focus-card li{ margin:.35rem 0; }
+        /* Approach */
+        #approach{ background:#fff; }
+        .approach-intro{ max-width:800px; margin:0 auto 4rem; text-align:center; }
+        .approach-intro p{ font-size:1.2rem; color:var(--text-light); line-height:1.8; }
+        .approach-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2.5rem; }
+        .approach-card{ padding:2.5rem; background:var(--light-color); border-radius:15px; transition:all .3s ease; border:2px solid transparent; }
+        .approach-card:hover{ transform:translateY(-10px); border-color:var(--highlight-color); box-shadow:0 15px 40px rgba(0,0,0,.1); }
+        .approach-card h3{ font-size:1.5rem; margin-bottom:1rem; color:var(--text-dark); }
+        .approach-card p{ color:var(--text-light); line-height:1.7; }
 
         /* Philosophy */
         #philosophy{ background:linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color:#fff; }
@@ -89,6 +98,17 @@
         .philosophy-item:hover{ background:rgba(255,255,255,.15); transform:scale(1.05); }
         .philosophy-item h4{ font-size:1.2rem; margin-bottom:.65rem; color:var(--highlight-color); }
         .philosophy-item p{ line-height:1.7; opacity:.92; }
+        
+        /* Updated Philosophy */
+        .philosophy-content p{ font-size:1.3rem; margin-bottom:3rem; opacity:.95; line-height:1.8; }
+        .philosophy-quote{ margin:3rem 0; }
+        .philosophy-quote p{ font-size:1.8rem; font-style:italic; color:var(--highlight-color); font-weight:600; }
+        .values-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:2rem; margin-top:3rem; }
+        .value-item{ padding:2rem; background:rgba(255,255,255,.1); backdrop-filter:blur(10px); border-radius:15px; transition:all .3s ease; position:relative; }
+        .value-item:hover{ background:rgba(255,255,255,.15); transform:scale(1.05); }
+        .value-item::after{ content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:60px; height:3px; background:var(--cta-color); border-radius:2px; }
+        .value-item h4{ font-size:1.3rem; margin-bottom:.5rem; color:var(--highlight-color); }
+        .value-item p{ line-height:1.6; opacity:.9; }
 
         /* Outcomes */
         #outcomes{ background:#fff; }
@@ -96,6 +116,11 @@
         .outcome{ padding:1.5rem; border:1px solid rgba(0,0,0,.08); border-radius:12px; background:#fff; box-shadow:0 5px 15px rgba(0,0,0,.05); }
         .outcome h4{ color:var(--text-dark); margin-bottom:.35rem; font-size:1.1rem; }
         .outcome p{ color:var(--text-light); }
+        
+        /* Updated Outcomes */
+        .outcomes-intro{ max-width:700px; margin:0 auto 3rem; text-align:center; }
+        .outcomes-intro p{ font-size:1.2rem; color:var(--text-light); line-height:1.8; }
+        .outcome-icon{ font-size:2rem; margin-bottom:1rem; }
 
         /* Contact */
         #contact{ background:var(--light-color); }
@@ -106,10 +131,17 @@
         .contact-item a{ color:var(--highlight-color); text-decoration:none; font-weight:600; transition:color .3s ease; }
         .contact-item a:hover{ color:var(--accent-color); }
         .contact-cta{ margin-top:1.25rem; font-size:.95rem; color:var(--text-light); }
+        
+        /* Contact Logo */
+        .contact-logo{ margin-top:2rem; }
+        .contact-logo-svg{ height:80px; width:auto; }
 
         /* Footer */
         footer{ background:var(--primary-color); color:var(--light-color); text-align:center; padding:2rem; }
         footer p{ opacity:.85; }
+        .footer-links{ margin-top:1rem; display:flex; justify-content:center; gap:2rem; }
+        .footer-links a{ color:var(--light-color); text-decoration:none; transition:all .3s ease; font-size:1.5rem; }
+        .footer-links a:hover{ color:var(--highlight-color); transform:scale(1.2); }
 
         /* Mobile */
         .menu-toggle{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
@@ -143,13 +175,13 @@
                 <img src="Arete-Ventures-Final_AA-14.svg" alt="Arête Ventures logo" class="logo-svg" />
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#focus">Focus</a></li>
+                <li><a href="#approach">Approach</a></li>
                 <li><a href="#philosophy">Philosophy</a></li>
                 <li><a href="#outcomes">Outcomes</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#contact" class="nav-cta">Let's Build Something Meaningful →</a>
             <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -162,75 +194,51 @@
             <div class="hero-logo">
                 <img src="Arete-Ventures-Final_AA-15.svg" alt="Arête Ventures emblem" class="hero-icon" />
             </div>
-            <h1 id="hero-title">Designing organizations that <span>bring out the best</span> in people.</h1>
-            <p>We partner with founders and teams to align people, purpose, and performance—turning strategy into systems, and systems into sustained excellence.</p>
-            <a href="mailto:alex@areteventur.es?subject=Discovery%20Call%20with%20Arête%20Ventures" class="cta-button" aria-label="Email to schedule a discovery call">Schedule a Discovery Call</a>
+            <h1 id="hero-title">Excellence with <span class="rock-salt">soul</span>. Strategy with <span class="rock-salt">depth</span>.</h1>
+            <p>We help leaders and teams design organizations that breathe — aligning purpose, structure, and timing so work feels both bold and deeply human.</p>
+            <a href="mailto:alex@areteventur.es?subject=Start%20a%20Conversation" class="cta-button" aria-label="Start a conversation">Start a Conversation →</a>
+            <p class="hero-secondary"><a href="#approach" class="secondary-link">Learn more about our approach</a></p>
         </div>
     </section>
 
     <!-- About -->
     <section id="about" aria-labelledby="about-title">
         <div class="container">
-            <h2 class="section-title" id="about-title">About Arête Ventures</h2>
+            <h2 class="section-title" id="about-title">About the <span class="rock-salt">Founder</span></h2>
             <div class="about-content">
                 <div class="about-text reveal">
                     <h3>Alex Abate</h3>
-                    <p>Arête Ventures was founded to help organizations reach their highest potential—not through complexity, but through clarity and excellence in execution. We believe great companies are built when people are empowered, processes are elegant, and purpose guides every decision.</p>
-                    <p>Drawing from a background in <strong>mechanical engineering</strong> and a <strong>master's in industrial–organizational psychology</strong>, Alex blends systems thinking with human insight. Experience at <strong>Fortune 500</strong> organizations like Starbucks and Skanska informs a practical approach to designing structures that scale and cultures that uplift.</p>
-                    <p>Based in <strong>Coeur d'Alene, Idaho</strong>, Alex and her husband, Sean, are invested in strengthening both local and national organizations through values-driven strategy and durable operations.</p>
-                    <p class="about-quote">"When people are aligned and systems are sound, excellence becomes inevitable."</p>
+                    <p>Hi, I'm Alex Abate — founder of Arête Ventures, and a firm believer that work should be both bold and deeply human.</p>
+                    <p>With a Bachelor's in Mechanical Engineering and a Master's in Industrial‑Organizational Psychology, I live at the intersection of systems thinking, purpose‑driven strategy, and leadership development.</p>
+                    <p>Over the past decade, I've supported organizations across construction, retail, consulting, and real‑estate development — helping teams streamline complexity, lead with integrity, and create work that matters.</p>
+                    <p>My approach is shaped by a simple truth: <b> people are designed to create.</b> When we align our structure with our values, the work becomes not just successful — but deeply satisfying.</p>
                 </div>
-                <div class="about-headshot reveal">
-                    <img src="alex-abate-headshot.jpeg" alt="Portrait of Alex Abate" style="width:160px; height:160px; border-radius:50%; object-fit:cover; box-shadow: 0 0 16px rgba(0,0,0,0.15);" />
+                <div class="about-headshot reveal" style="display: flex; justify-content: center; margin-top: 2rem;">
+                    <img src="alex-abate-headshot.jpeg" alt="Portrait of Alex Abate" style="width:280px; height:350px; border-radius:12px; object-fit:cover; box-shadow: 0 8px 25px rgba(0,0,0,0.15);" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Focus Areas -->
-    <section id="focus" aria-labelledby="focus-title">
+    <!-- Approach -->
+    <section id="approach" aria-labelledby="approach-title">
         <div class="container">
-            <h2 class="section-title" id="focus-title">Our Areas of Focus</h2>
-            <div class="focus-grid">
-                <div class="focus-card reveal">
-                    <div class="focus-icon" aria-hidden="true">🧭</div>
+            <h2 class="section-title" id="approach-title">Systems that <span class="rock-salt">serve</span>. Leadership that <span class="rock-salt">lasts</span>.</h2>
+            <div class="approach-intro">
+                <p>At the intersection of engineering and psychology, Arête Ventures helps organizations align how they work with why they work. Our approach blends operational precision with human insight — designing structures that empower clarity, flow, and integrity at every level.</p>
+                </div>
+            <div class="approach-grid">
+                <div class="approach-card reveal">
                     <h3>Organizational Design & Strategy</h3>
-                    <p>Align vision, structure, and decision rights to unlock clarity and flow.</p>
-                    <ul>
-                        <li>Operating models & org structures</li>
-                        <li>Strategic planning & prioritization</li>
-                        <li>Decision frameworks & governance</li>
-                    </ul>
+                    <p>Align your structure with purpose. We design systems that breathe — scalable, flexible, and true to your values.</p>
                 </div>
-                <div class="focus-card reveal">
-                    <div class="focus-icon" aria-hidden="true">🤝</div>
+                <div class="approach-card reveal">
                     <h3>Leadership & Team Development</h3>
-                    <p>Equip leaders and teams with the mindsets and tools to communicate, collaborate, and perform.</p>
-                    <ul>
-                        <li>Team norms & rituals</li>
-                        <li>Feedback systems & coaching</li>
-                        <li>Role clarity & competency frameworks</li>
-                    </ul>
+                    <p>Build the kind of leadership that lasts — grounded, relational, and brave enough to say the thing others won't.</p>
                 </div>
-                <div class="focus-card reveal">
-                    <div class="focus-icon" aria-hidden="true">⚙️</div>
+                <div class="approach-card reveal">
                     <h3>Operational Excellence</h3>
-                    <p>Turn goals into grounded results with elegant, repeatable processes and metrics.</p>
-                    <ul>
-                        <li>Process mapping & optimization</li>
-                        <li>KPIs / OKRs & dashboards</li>
-                        <li>Change enablement & rollout plans</li>
-                    </ul>
-                </div>
-                <div class="focus-card reveal">
-                    <div class="focus-icon" aria-hidden="true">🌱</div>
-                    <h3>Culture & Change</h3>
-                    <p>Build resilient, values-driven cultures that thrive through growth and uncertainty.</p>
-                    <ul>
-                        <li>Values operationalization</li>
-                        <li>Onboarding & rituals design</li>
-                        <li>Communication & storytelling</li>
-                    </ul>
+                    <p>Create clarity in the chaos. Streamline processes that actually serve the work — not the other way around.</p>
                 </div>
             </div>
         </div>
@@ -239,25 +247,28 @@
     <!-- Philosophy / Values -->
     <section id="philosophy" aria-labelledby="philosophy-title">
         <div class="container">
-            <h2 class="section-title" id="philosophy-title" style="color:#fff;">Our Philosophy</h2>
+            <h2 class="section-title" id="philosophy-title" style="color:#fff;">How We Work</h2>
             <div class="philosophy-content">
-                <h3>"Excellence is a practice—not perfection. It's the continual refinement of how we work, lead, and build together."</h3>
-                <div class="philosophy-grid">
-                    <div class="philosophy-item reveal">
-                        <h4>Integrity in Action</h4>
-                        <p>Do the right thing, even when it's unseen. Strong foundations sustain great outcomes.</p>
+                <p>Meaningful work demands balance — between structure and soul, momentum and pause. We believe excellence isn't about perfection; it's about alignment. When people and systems move together with intention, everything flows.</p>
+                <div class="philosophy-quote">
+                    <p>People are designed to <span class="rock-salt">create.</span></p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-item reveal">
+                        <h4>Grounded</h4>
+                        <p>Clear, honest, never fluffy</p>
                     </div>
-                    <div class="philosophy-item reveal">
-                        <h4>Courage to Create</h4>
-                        <p>Change demands bold action and thoughtful risk. We help teams step forward with confidence.</p>
+                    <div class="value-item reveal">
+                        <h4>Insightful</h4>
+                        <p>Deep without being cryptic</p>
                     </div>
-                    <div class="philosophy-item reveal">
-                        <h4>Systems of Meaning</h4>
-                        <p>Structures should serve people, not the other way around. We design for human potential.</p>
+                    <div class="value-item reveal">
+                        <h4>Brave</h4>
+                        <p>Willing to say the thing others won't</p>
                     </div>
-                    <div class="philosophy-item reveal">
-                        <h4>Long‑Term Partnership</h4>
-                        <p>We measure success in impact, not invoices. We're in it for the journey, not the sprint.</p>
+                    <div class="value-item reveal">
+                        <h4>Human</h4>
+                        <p>High-integrity and real-world connected</p>
                     </div>
                 </div>
             </div>
@@ -267,23 +278,30 @@
     <!-- Outcomes / Proof -->
     <section id="outcomes" aria-labelledby="outcomes-title">
         <div class="container">
-            <h2 class="section-title" id="outcomes-title">Outcomes We Aim For</h2>
+            <h2 class="section-title" id="outcomes-title">What You'll See</h2>
+            <div class="outcomes-intro">
+                <p>When alignment happens, the results speak for themselves — inside and out. We focus on four outcomes that make work not just successful, but satisfying.</p>
+            </div>
             <div class="outcomes-grid">
                 <div class="outcome reveal">
+                    <div class="outcome-icon"><i class="fas fa-eye"></i></div>
                     <h4>Clarity</h4>
-                    <p>Everyone knows the strategy, priorities, and how decisions get made.</p>
+                    <p>Because alignment brings ease.</p>
                 </div>
                 <div class="outcome reveal">
+                    <div class="outcome-icon"><i class="fas fa-bolt"></i></div>
                     <h4>Flow</h4>
-                    <p>Work moves smoothly with fewer handoffs, bottlenecks, and rework.</p>
+                    <p>Because systems should breathe.</p>
                 </div>
                 <div class="outcome reveal">
+                    <div class="outcome-icon"><i class="fas fa-check-circle"></i></div>
                     <h4>Accountability</h4>
-                    <p>Clear roles, measurable goals, and healthy feedback loops.</p>
+                    <p>Because integrity is structure in motion.</p>
                 </div>
                 <div class="outcome reveal">
+                    <div class="outcome-icon"><i class="fas fa-users"></i></div>
                     <h4>Belonging</h4>
-                    <p>Teams feel safe, valued, and connected to the mission.</p>
+                    <p>Because people do their best work when they feel seen.</p>
                 </div>
             </div>
         </div>
@@ -292,14 +310,13 @@
     <!-- Contact -->
     <section id="contact" aria-labelledby="contact-title">
         <div class="container">
-            <h2 class="section-title" id="contact-title">Get In Touch</h2>
+            <h2 class="section-title" id="contact-title">Let's Build Something Meaningful</h2>
             <div class="contact-content">
-                <p>Let's build something excellent together. Whether you're refining strategy, rethinking structure, or cultivating culture—we'd love to explore how we can help.</p>
-                <div class="contact-info">
-                    <div class="contact-item"><span aria-hidden="true">📧</span><a href="mailto:alex@areteventur.es">alex@areteventur.es</a></div>
-                    <div class="contact-item"><span aria-hidden="true">📍</span><span><a href="https://maps.app.goo.gl/NQ4LDQj7tqLEnQZd6">Coeur d'Alene, ID</a></span></div>
+                <p>If you're navigating complexity, scaling a vision, or just sensing there's a better way to work — let's talk. Whether we design a new system, coach a leadership team, or reimagine how work gets done, we'll start with clarity and build from there.</p>
+                <a href="mailto:alex@areteventur.es?subject=Start%20a%20Conversation" class="cta-button">Start a Conversation →</a>
+                <div class="contact-logo">
+                    <img src="Arete-Ventures-Final_AA-14.svg" alt="Arête Ventures logo" class="contact-logo-svg" />
                 </div>
-                <p class="contact-cta">Prefer a quick intro? <a href="mailto:alex@areteventur.es?subject=Intro%20Call%20Request">Email to request a 20‑minute intro call</a>.</p>
             </div>
         </div>
     </section>
@@ -307,7 +324,12 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Arête Ventures. Excellence, by design.</p>
+            <p>&copy; 2025 Arête Ventures. <p><b>Bold work, built well.</b></p>
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/alexabate" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:alex@areteventur.es" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#contact" aria-label="Contact"><i class="fas fa-comment"></i></a>
+            </div>
         </div>
     </footer>
 
