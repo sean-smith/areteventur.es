@@ -1,611 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arete Ventures</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Laviossa:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Arête Ventures — Excellence, by design.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Laviossa:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root{
+            --primary-color:#1f435c;
+            --secondary-color:#486159;
+            --accent-color:#9cd0f5;
+            --highlight-color:#8FC2B1;
+            --cta-color:#ca6462;
+            --text-dark:#5c1f32;
+            --light-color:#f8f9fa;
+            --text-color:#333;
+            --text-light:#666;
         }
 
-        :root {
-            --primary-color: #1f435c;
-            --secondary-color: #486159;
-            --accent-color: #9cd0f5;
-            --highlight-color: #8FC2B1;
-            --cta-color: #ca6462;
-            --text-dark: #5c1f32;
-            --light-color: #f8f9fa;
-            --text-color: #333;
-            --text-light: #666;
-        }
-
-        body {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            overflow-x: hidden;
-            background-color: white;
-        }
+        body{ font-family: Georgia,'Times New Roman',Times,serif; line-height:1.6; color:var(--text-color); overflow-x:hidden; background:#fff; }
 
         /* Navigation */
-        nav {
-            position: fixed;
-            width: 100%;
-            background: rgba(31, 67, 92, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
+        nav{ position:fixed; width:100%; background:rgba(31,67,92,.95); backdrop-filter:blur(10px); z-index:1000; padding:1rem 0; transition:all .3s ease; }
+        nav.scrolled{ box-shadow:0 2px 10px rgba(0,0,0,.1); }
 
-        nav.scrolled {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+        .nav-container{ max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+        .logo{ font-family:'Laviossa',serif; font-size:1.5rem; font-weight:700; color:var(--light-color); text-transform:uppercase; letter-spacing:2px; display:flex; align-items:center; gap:.75rem; }
+        .logo-svg{ height:40px; width:auto; filter:brightness(0) invert(1); }
 
-        .logo {
-            font-family: 'Laviossa', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--light-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .nav-links{ display:flex; list-style:none; gap:2rem; }
+        .nav-links a{ color:var(--light-color); text-decoration:none; font-weight:500; transition:color .3s ease; position:relative; }
+        .nav-links a::after{ content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--highlight-color); transition:width .3s ease; }
+        .nav-links a:hover{ color:var(--highlight-color); }
+        .nav-links a:hover::after{ width:100%; }
 
-        .logo-svg {
-            height: 40px;
-            width: auto;
-            filter: brightness(0) invert(1);
-        }
+        /* Hero */
+        .hero{ height:100vh; background:#fff; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+        .hero::before{ content:''; position:absolute; width:200%; height:200%; background: radial-gradient(circle, rgba(233,69,96,.08) 1px, transparent 1px); background-size:50px 50px; animation:moveBackground 20s linear infinite; }
+        @keyframes moveBackground{ 0%{ transform:translate(0,0);} 100%{ transform:translate(50px,50px);} }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+        .hero-content{ text-align:center; color:var(--text-dark); z-index:1; max-width:880px; padding:2rem; }
+        .hero-logo{ animation:fadeInUp 1s ease .1s both; }
+        .hero-icon{ height:200px; width:auto; }
+        .hero h1{ font-size:4rem; margin-bottom:1rem; font-weight:800; line-height:1.2; animation:fadeInUp 1s ease; }
+        .hero h1 span{ color:var(--highlight-color); }
+        .hero p{ font-size:1.35rem; margin-bottom:2rem; opacity:.95; animation:fadeInUp 1s ease .2s both; }
+        .cta-button{ display:inline-block; padding:1rem 2.5rem; background:var(--cta-color); color:#fff; text-decoration:none; border-radius:50px; font-weight:600; transition:all .3s ease; animation:fadeInUp 1s ease .4s both; box-shadow:0 10px 30px rgba(202,100,98,.3); }
+        .cta-button:hover{ transform:translateY(-3px); box-shadow:0 15px 40px rgba(202,100,98,.4); }
 
-        .nav-links a {
-            color: var(--light-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+        @keyframes fadeInUp{ from{ opacity:0; transform:translateY(30px);} to{ opacity:1; transform:translateY(0);} }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--highlight-color);
-            transition: width 0.3s ease;
-        }
+        /* Sections */
+        section{ padding:5rem 2rem; }
+        .section-title{ text-align:center; font-size:2.5rem; margin-bottom:3rem; color:var(--text-dark); font-weight:700; }
+        .container{ max-width:1200px; margin:0 auto; }
 
-        .nav-links a:hover {
-            color: var(--highlight-color);
-        }
+        /* About */
+        #about{ background:var(--light-color); }
+        .about-content{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+        .about-text h3{ font-size:2rem; margin-bottom:1rem; color:var(--text-dark); }
+        .about-text p{ font-size:1.08rem; color:var(--text-light); margin-bottom:1.2rem; line-height:1.85; }
+        .about-quote{ margin-top:1rem; font-style:italic; color:var(--text-dark); }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        /* Focus */
+        #focus{ background:#fff; }
+        .focus-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2rem; }
+        .focus-card{ padding:2.5rem; background:var(--light-color); border-radius:15px; transition:all .3s ease; border:2px solid transparent; }
+        .focus-card:hover{ transform:translateY(-10px); border-color:var(--highlight-color); box-shadow:0 15px 40px rgba(0,0,0,.1); }
+        .focus-icon{ font-size:3rem; margin-bottom:1rem; }
+        .focus-card h3{ font-size:1.45rem; margin-bottom:.75rem; color:var(--text-dark); }
+        .focus-card p{ color:var(--text-light); line-height:1.7; }
+        .focus-card ul{ margin-top:.75rem; padding-left:1.25rem; color:var(--text-light); }
+        .focus-card li{ margin:.35rem 0; }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Philosophy */
+        #philosophy{ background:linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color:#fff; }
+        .philosophy-content{ max-width:980px; margin:0 auto; text-align:center; }
+        .philosophy-content h3{ font-size:2rem; margin-bottom:2rem; font-style:italic; opacity:.96; }
+        .philosophy-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:2rem; margin-top:2.25rem; }
+        .philosophy-item{ padding:2rem; background:rgba(255,255,255,.1); backdrop-filter:blur(10px); border-radius:15px; transition:all .3s ease; }
+        .philosophy-item:hover{ background:rgba(255,255,255,.15); transform:scale(1.05); }
+        .philosophy-item h4{ font-size:1.2rem; margin-bottom:.65rem; color:var(--highlight-color); }
+        .philosophy-item p{ line-height:1.7; opacity:.92; }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
+        /* Outcomes */
+        #outcomes{ background:#fff; }
+        .outcomes-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
+        .outcome{ padding:1.5rem; border:1px solid rgba(0,0,0,.08); border-radius:12px; background:#fff; box-shadow:0 5px 15px rgba(0,0,0,.05); }
+        .outcome h4{ color:var(--text-dark); margin-bottom:.35rem; font-size:1.1rem; }
+        .outcome p{ color:var(--text-light); }
 
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .hero-content {
-            text-align: center;
-            color: var(--text-dark);
-            z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero-logo {
-            animation: fadeInUp 1s ease 0.1s both;
-        }
-
-        .hero-icon {
-            height: 200px;
-            width: auto;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 span {
-            color: var(--highlight-color);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--cta-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.4s both;
-            box-shadow: 0 10px 30px rgba(202, 100, 98, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(202, 100, 98, 0.4);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        #about {
-            background: var(--light-color);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* Focus Areas Section */
-        #focus {
-            background: white;
-        }
-
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .focus-card {
-            padding: 2.5rem;
-            background: var(--light-color);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .focus-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--highlight-color);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .focus-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .focus-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .focus-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Philosophy Section */
-        #philosophy {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-        }
-
-        .philosophy-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .philosophy-content h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-style: italic;
-            opacity: 0.95;
-        }
-
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .philosophy-item {
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .philosophy-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: scale(1.05);
-        }
-
-        .philosophy-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--highlight-color);
-        }
-
-        .philosophy-item p {
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: var(--light-color);
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            font-size: 1.1rem;
-            color: var(--text-color);
-        }
-
-        .contact-item a {
-            color: var(--highlight-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-color);
-        }
+        /* Contact */
+        #contact{ background:var(--light-color); }
+        .contact-content{ max-width:700px; margin:0 auto; text-align:center; }
+        .contact-content p{ font-size:1.15rem; color:var(--text-light); margin-bottom:1.25rem; }
+        .contact-info{ display:flex; flex-direction:column; gap:1.1rem; margin-top:1.25rem; }
+        .contact-item{ display:flex; align-items:center; justify-content:center; gap:.75rem; font-size:1.05rem; color:var(--text-color); }
+        .contact-item a{ color:var(--highlight-color); text-decoration:none; font-weight:600; transition:color .3s ease; }
+        .contact-item a:hover{ color:var(--accent-color); }
+        .contact-cta{ margin-top:1.25rem; font-size:.95rem; color:var(--text-light); }
 
         /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: var(--light-color);
-            text-align: center;
-            padding: 2rem;
+        footer{ background:var(--primary-color); color:var(--light-color); text-align:center; padding:2rem; }
+        footer p{ opacity:.85; }
+
+        /* Mobile */
+        .menu-toggle{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .menu-toggle span{ width:25px; height:3px; background:var(--light-color); transition:all .3s ease; }
+
+        @media (max-width:768px){
+            .hero h1{ font-size:2.5rem; }
+            .hero p{ font-size:1.1rem; }
+            .about-content{ grid-template-columns:1fr; }
+            .section-title{ font-size:2rem; }
+            .nav-links{ display:none; }
+            .menu-toggle{ display:flex; }
+            .philosophy-content h3{ font-size:1.5rem; }
+        }
+        @media (max-width:480px){
+            .hero h1{ font-size:2rem; }
+            .hero p{ font-size:1rem; }
+            .cta-button{ padding:.8rem 2rem; }
         }
 
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--light-color);
-            transition: all 0.3s ease;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .philosophy-content h3 {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 2rem;
-            }
-        }
+        /* Animations on scroll */
+        .reveal{ opacity:0; transform:translateY(20px); transition:all .6s ease; }
+        .reveal.visible{ opacity:1; transform:translateY(0); }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Primary">
         <div class="nav-container">
-            <div class="logo">
-                <img src="Arete-Ventures-Final_AA-14.svg" alt="Arete Ventures" class="logo-svg">
+            <div class="logo" aria-label="Arête Ventures">
+                <img src="Arete-Ventures-Final_AA-14.svg" alt="Arête Ventures logo" class="logo-svg" />
+                <span class="sr-only">Arête Ventures</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#focus">Focus</a></li>
                 <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#outcomes">Outcomes</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="Arete-Ventures-Final_AA-15.svg" alt="Arete Ventures Icon" class="hero-icon">
+                <img src="Arete-Ventures-Final_AA-15.svg" alt="Arête Ventures emblem" class="hero-icon" />
             </div>
-            <h1>Promoting <span>Excellence</span> in Organizations</h1>
-            <p>We're a strategy consulting firm that helps founders build exceptional companies that shape the future.</p>
-            <a href="#contact" class="cta-button">Partner With Us</a>
+            <h1 id="hero-title">Designing organizations that <span>bring out the best</span> in people.</h1>
+            <p>We partner with founders and teams to align people, purpose, and performance—turning strategy into systems, and systems into sustained excellence.</p>
+            <a href="mailto:alex@areteventur.es?subject=Discovery%20Call%20with%20Arête%20Ventures" class="cta-button" aria-label="Email to schedule a discovery call">Schedule a Discovery Call</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- About -->
+    <section id="about" aria-labelledby="about-title">
         <div class="container">
-            <h2 class="section-title">About Arete Ventures</h2>
+            <h2 class="section-title" id="about-title">About Arête Ventures</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <h3>Alex Abate</h3>
-                    <p>Alex founded Arete Ventures in 2024 to help small businesses thrive by organizing them to achieve their full potential.</p>
-                    <p>Alex worked for Fortune 500 companies such as Starbucks and Skanska. She has her undergrad in mechanical engineering and a masters in industrial-organizational psychology.</p>
-                    <p>Alex and her husband, Sean moved to Coeur d'Alene, ID in 2025 and are excited to be part of the community.</p>
+                    <p>Arête Ventures was founded to help organizations reach their highest potential—not through complexity, but through clarity and excellence in execution. We believe great companies are built when people are empowered, processes are elegant, and purpose guides every decision.</p>
+                    <p>Drawing from a background in <strong>mechanical engineering</strong> and a <strong>master's in industrial–organizational psychology</strong>, Alex blends systems thinking with human insight. Experience at <strong>Fortune 500</strong> organizations like Starbucks and Skanska informs a practical approach to designing structures that scale and cultures that uplift.</p>
+                    <p>Based in <strong>Coeur d'Alene, Idaho</strong>, Alex and her husband, Sean, are invested in strengthening both local and national organizations through values-driven strategy and durable operations.</p>
+                    <p class="about-quote">"When people are aligned and systems are sound, excellence becomes inevitable."</p>
                 </div>
-
-                <div class="about-headshot">
-                    <img src="alex-abate-headshot.jpeg" alt="Alex Abate headshot" style="width:160px; height:160px; border-radius:50%; object-fit:cover; box-shadow: 0 0 16px rgba(0,0,0,0.15);" />
+                <div class="about-headshot reveal">
+                    <img src="alex-abate-headshot.jpeg" alt="Portrait of Alex Abate" style="width:160px; height:160px; border-radius:50%; object-fit:cover; box-shadow: 0 0 16px rgba(0,0,0,0.15);" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Focus Areas Section -->
-    <section id="focus">
+    <!-- Focus Areas -->
+    <section id="focus" aria-labelledby="focus-title">
         <div class="container">
-            <h2 class="section-title">Our Areas of Focus</h2>
+            <h2 class="section-title" id="focus-title">Our Areas of Focus</h2>
             <div class="focus-grid">
-                <div class="focus-card">
-                    <div class="focus-icon">🚀</div>
-                    <h3>Organizational Planning</h3>
-                    <p>We help organizations plan for the future by identifying their strengths, weaknesses, opportunities, and threats.</p>
+                <div class="focus-card reveal">
+                    <div class="focus-icon" aria-hidden="true">🧭</div>
+                    <h3>Organizational Design & Strategy</h3>
+                    <p>Align vision, structure, and decision rights to unlock clarity and flow.</p>
+                    <ul>
+                        <li>Operating models & org structures</li>
+                        <li>Strategic planning & prioritization</li>
+                        <li>Decision frameworks & governance</li>
+                    </ul>
                 </div>
-                <div class="focus-card">
-                    <div class="focus-icon">💡</div>
-                    <h3>Performance Management</h3>
-                    <p>We help organizations track and measure their performance by setting goals, objectives, and key results.</p>
+                <div class="focus-card reveal">
+                    <div class="focus-icon" aria-hidden="true">🤝</div>
+                    <h3>Leadership & Team Development</h3>
+                    <p>Equip leaders and teams with the mindsets and tools to communicate, collaborate, and perform.</p>
+                    <ul>
+                        <li>Team norms & rituals</li>
+                        <li>Feedback systems & coaching</li>
+                        <li>Role clarity & competency frameworks</li>
+                    </ul>
                 </div>
-                <div class="focus-card">
-                    <div class="focus-icon">🌱</div>
-                    <h3>Human Resources</h3>
-                    <p>We help organizations manage their human resources by hiring, training, and developing employees.</p>
+                <div class="focus-card reveal">
+                    <div class="focus-icon" aria-hidden="true">⚙️</div>
+                    <h3>Operational Excellence</h3>
+                    <p>Turn goals into grounded results with elegant, repeatable processes and metrics.</p>
+                    <ul>
+                        <li>Process mapping & optimization</li>
+                        <li>KPIs / OKRs & dashboards</li>
+                        <li>Change enablement & rollout plans</li>
+                    </ul>
                 </div>
-                <div class="focus-card">
-                    <div class="focus-icon">🏥</div>
-                    <h3>Workplace Culture</h3>
-                    <p>We help organizations create a culture of excellence by fostering a sense of belonging and purpose.</p>
+                <div class="focus-card reveal">
+                    <div class="focus-icon" aria-hidden="true">🌱</div>
+                    <h3>Culture & Change</h3>
+                    <p>Build resilient, values-driven cultures that thrive through growth and uncertainty.</p>
+                    <ul>
+                        <li>Values operationalization</li>
+                        <li>Onboarding & rituals design</li>
+                        <li>Communication & storytelling</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Philosophy Section -->
-    <section id="philosophy">
+    <!-- Philosophy / Values -->
+    <section id="philosophy" aria-labelledby="philosophy-title">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Our Philosophy</h2>
+            <h2 class="section-title" id="philosophy-title" style="color:#fff;">Our Philosophy</h2>
             <div class="philosophy-content">
-                <h3>"We believe that excellence is not a destination, but a continuous journey of growth and refinement."</h3>
+                <h3>"Excellence is a practice—not perfection. It's the continual refinement of how we work, lead, and build together."</h3>
                 <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h4>Organizational-First</h4>
-                        <p>We help small businesses plan for the future by identifying their strengths, weaknesses, opportunities, and threats.</p>
+                    <div class="philosophy-item reveal">
+                        <h4>Integrity in Action</h4>
+                        <p>Do the right thing, even when it's unseen. Strong foundations sustain great outcomes.</p>
                     </div>
-                    <div class="philosophy-item">
-                        <h4>Long-Term Partnership</h4>
-                        <p>We're committed for the long haul, supporting our organizations through every stage of growth and change.</p>
+                    <div class="philosophy-item reveal">
+                        <h4>Courage to Create</h4>
+                        <p>Change demands bold action and thoughtful risk. We help teams step forward with confidence.</p>
                     </div>
-                    <div class="philosophy-item">
-                        <h4>Practicality</h4>
-                        <p>We provide practical guidance, network access, and operational expertise.</p>
+                    <div class="philosophy-item reveal">
+                        <h4>Systems of Meaning</h4>
+                        <p>Structures should serve people, not the other way around. We design for human potential.</p>
+                    </div>
+                    <div class="philosophy-item reveal">
+                        <h4>Long‑Term Partnership</h4>
+                        <p>We measure success in impact, not invoices. We're in it for the journey, not the sprint.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- Outcomes / Proof -->
+    <section id="outcomes" aria-labelledby="outcomes-title">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>Ready to work together? Email alex to get started.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <a href="mailto:alex@areteventur.es">alex@areteventur.es</a>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span><a href="https://maps.app.goo.gl/NQ4LDQj7tqLEnQZd6">Coeur d'Alene, ID</a></span>
-                    </div>
+            <h2 class="section-title" id="outcomes-title">Outcomes We Aim For</h2>
+            <div class="outcomes-grid">
+                <div class="outcome reveal">
+                    <h4>Clarity</h4>
+                    <p>Everyone knows the strategy, priorities, and how decisions get made.</p>
                 </div>
+                <div class="outcome reveal">
+                    <h4>Flow</h4>
+                    <p>Work moves smoothly with fewer handoffs, bottlenecks, and rework.</p>
+                </div>
+                <div class="outcome reveal">
+                    <h4>Accountability</h4>
+                    <p>Clear roles, measurable goals, and healthy feedback loops.</p>
+                </div>
+                <div class="outcome reveal">
+                    <h4>Belonging</h4>
+                    <p>Teams feel safe, valued, and connected to the mission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 class="section-title" id="contact-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Let's build something excellent together. Whether you're refining strategy, rethinking structure, or cultivating culture—we'd love to explore how we can help.</p>
+                <div class="contact-info">
+                    <div class="contact-item"><span aria-hidden="true">📧</span><a href="mailto:alex@areteventur.es">alex@areteventur.es</a></div>
+                    <div class="contact-item"><span aria-hidden="true">📍</span><span><a href="https://maps.app.goo.gl/NQ4LDQj7tqLEnQZd6">Coeur d'Alene, ID</a></span></div>
+                </div>
+                <p class="contact-cta">Prefer a quick intro? <a href="mailto:alex@areteventur.es?subject=Intro%20Call%20Request">Email to request a 20‑minute intro call</a>.</p>
             </div>
         </div>
     </section>
@@ -613,7 +308,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Arete Ventures. All rights reserved. Investing in Excellence.</p>
+            <p>&copy; 2025 Arête Ventures. Excellence, by design.</p>
         </div>
     </footer>
 
@@ -621,50 +316,34 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function(){
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) { navbar.classList.add('scrolled'); }
+            else { navbar.classList.remove('scrolled'); }
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // Intersection Observer for reveal animations
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        },{ threshold:0.12, rootMargin:'0px 0px -50px 0px' });
 
-        // Observe all cards and sections
-        document.querySelectorAll('.focus-card, .stat-card, .philosophy-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el=> observer.observe(el));
     </script>
 </body>
 </html>
-
