@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arête Ventures - OG Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Laviossa:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #1f435c 0%, #486159 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+        
+        @keyframes moveBackground {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(50px,50px); }
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+        
+        .logo {
+            margin-bottom: 2rem;
+        }
+        
+        .logo img {
+            height: 120px;
+            width: auto;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        
+        .rock-salt {
+            font-family: 'Rock Salt', cursive;
+            color: #8FC2B1;
+            font-size: 0.9em;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+        
+        .cta {
+            font-size: 1.4rem;
+            color: #8FC2B1;
+            font-weight: 600;
+            font-style: italic;
+        }
+        
+        .accent-line {
+            position: absolute;
+            bottom: 60px;
+            right: 80px;
+            width: 200px;
+            height: 3px;
+            background: #8FC2B1;
+            border-radius: 2px;
+        }
+        
+        .accent-line::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="Arete-Ventures-Final_AA-15.svg" alt="Arête Ventures">
+        </div>
+        
+        <h1>Excellence with <span class="rock-salt">soul</span>.<br>Strategy with <span class="rock-salt">depth</span>.</h1>
+        
+        <p class="tagline">We help leaders and teams design organizations that breathe</p>
+        
+        <p class="cta">Let's build something meaningful</p>
+    </div>
+    
+    <div class="accent-line"></div>
+</body>
+</html>
